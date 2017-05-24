@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rake', :require => false
 gem 'maxminddb'
 gem 'sinatra'
-gem 'sinatra-param', github: 'nicbet/sinatra-param'
+gem 'sinatra-param'
 
 gem 'ripl'
 gem 'ripl-auto_indent'
