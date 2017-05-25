@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rake', :require => false
 gem 'maxminddb'
+gem 'thin'
 gem 'sinatra'
 gem 'sinatra-param'
 
