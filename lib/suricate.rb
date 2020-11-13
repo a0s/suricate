@@ -14,7 +14,6 @@ class Suricate < Sinatra::Base
 
     ret = self.class.db.lookup(params[:ip])
     halt 404 unless ret.found?
-    halt 404 if ret.country.name.nil? || ret.city.name.nil?
 
     result = {
       country: ret.country.name(params[:language]),
