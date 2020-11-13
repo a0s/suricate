@@ -3,15 +3,17 @@ GEM
   specs:
     bond (0.5.1)
     coderay (1.0.9)
-    daemons (1.3.1)
-    eventmachine (1.2.7)
     maxminddb (0.1.22)
-    mustermann (1.0.3)
-    paint (2.1.0)
-    rack (2.0.7)
-    rack-protection (2.0.5)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.4)
+    paint (2.2.0)
+    puma (5.0.4)
+      nio4r (~> 2.0)
+    rack (2.2.3)
+    rack-protection (2.1.0)
       rack
-    rake (12.3.2)
+    rake (13.0.1)
     ripl (0.7.1)
       bond (~> 0.5.1)
     ripl-auto_indent (0.2.0)
@@ -31,21 +33,18 @@ GEM
       ripl (>= 0.3.6)
     ripl-short_errors (0.1.0)
       ripl (>= 0.2.8)
+    ruby2_keywords (0.0.2)
     ruby_indentation (0.2.0)
       coderay (~> 1.0.5)
-    sinatra (2.0.5)
+    sinatra (2.1.0)
       mustermann (~> 1.0)
-      rack (~> 2.0)
-      rack-protection (= 2.0.5)
+      rack (~> 2.2)
+      rack-protection (= 2.1.0)
       tilt (~> 2.0)
     sinatra-param (1.6.0)
       sinatra (>= 1.3)
-    thin (1.7.2)
-      daemons (~> 1.0, >= 1.0.9)
-      eventmachine (~> 1.0, >= 1.0.4)
-      rack (>= 1, < 3)
-    tilt (2.0.9)
-    wirb (2.1.2)
+    tilt (2.0.10)
+    wirb (2.2.1)
       paint (>= 0.9, < 3.0)
 
 PLATFORMS
@@ -53,6 +52,7 @@ PLATFORMS
 
 DEPENDENCIES
   maxminddb
+  puma
   rake
   ripl
   ripl-auto_indent
@@ -64,7 +64,6 @@ DEPENDENCIES
   ripl-short_errors
   sinatra
   sinatra-param
-  thin
 
 BUNDLED WITH
-   1.17.2
+   2.1.4

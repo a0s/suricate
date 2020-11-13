@@ -18,15 +18,22 @@ class Suricate < Sinatra::Base
 
     result = {
       country: ret.country.name(params[:language]),
-      city:    ret.city.name(params[:language])
+      country_iso_code: ret.country.iso_code,
+      city: ret.city.name(params[:language]),
+      lat: ret.location.latitude,
+      long: ret.location.longitude,
     }
     content_type 'application/json; charset=utf-8'
     halt 200, JSON.dump(result)
   end
 
   get '/health' do
-    halt 200 unless self.class.db.lookup('8.8.8.8').country.name.nil?
-    halt 400
+    content_type 'plain/text; charset=utf-8'
+    if self.class.db.lookup('8.8.8.8').country.name.nil?
+      halt 400, 'Something wrong'
+    else
+      halt 200, 'OK'
+    end
   end
 
   def self.root

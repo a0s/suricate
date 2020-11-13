@@ -14,6 +14,7 @@ task console: :environment do
   require 'ripl/short_errors'
   ARGV.clear
   Ripl.start binding: binding
+  irb
 end
 
 task c: :console
