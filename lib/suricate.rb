@@ -12,7 +12,15 @@ class Suricate < Sinatra::Base
     param :ip, String, required: true, format: ip_regexp
     param :language, String, in: %w(en ru), default: 'ru'
 
-    ret = self.class.db.lookup(params[:ip])
+    ret = nil
+
+    begin
+      ret = self.class.db.lookup(params[:ip])
+    rescue IPAddr::InvalidAddressError => ex
+      content_type 'application/json; charset=utf-8'
+      halt 400, JSON.dump(error: ex)
+    end
+
     halt 404 unless ret.found?
 
     result = {
